@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -60,9 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 System.out.println("post delayed may leak");
             }
         }, 5000);
+        Toast.makeText(this, "请注意查看通知栏LeakMemory", Toast.LENGTH_SHORT).show();
     }
 
     private void startAllocationLargeNumbersOfObjects() {
+        Toast.makeText(this, "请注意查看MemoryMonitor 以及AllocationTracker", Toast.LENGTH_SHORT).show();
         for (int i = 0; i < 10000; i++) {
             Rect rect = new Rect(0, 0, 100, 100);
             System.out.println("-------: " + rect.width());
